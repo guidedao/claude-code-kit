@@ -122,7 +122,7 @@ def _local_md():
 def _settings():
     raw = read(".claude/settings.json")
     if raw is None:
-        return Result(False, fail="Нет .claude/settings.json", hint="он появился в модуле 12: верните его из Git.")
+        return Result(False, fail="Нет .claude/settings.json", hint="он появился в модуле 13: верните его из Git.")
     try:
         shared = json.loads(raw)
     except ValueError as exc:

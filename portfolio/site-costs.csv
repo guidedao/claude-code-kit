@@ -1,13 +1,11 @@
-variant,item,billing,first_year_rub,renewal_rub,note
-"Конструктор, оплата помесячно",Подписка на тариф для личного сайта,month,750,750,
-"Конструктор, оплата помесячно",Домен в зоне .ru,year,199,899,первый год по акции регистратора
-"Конструктор, оплата за год",Подписка на тот же тариф,year,6000,6000,оплата сразу за 12 месяцев
-"Конструктор, оплата за год",Домен в зоне .ru,year,199,899,первый год по акции регистратора
-WordPress на хостинге,Виртуальный хостинг с WordPress,month,290,290,
-WordPress на хостинге,Домен в зоне .ru,year,199,899,первый год по акции регистратора
-WordPress на хостинге,Платная тема оформления,once,4200,0,разовая покупка
-WordPress на хостинге,Плагин резервных копий,year,2400,2400,
-WordPress на хостинге,HTTPS-сертификат,year,0,0,бесплатный сертификат от хостинга
-Домен и бесплатный хостинг,Хостинг GitHub Pages,year,0,0,для публичного репозитория
-Домен и бесплатный хостинг,Домен в зоне .ru,year,199,899,первый год по акции регистратора
-Домен и бесплатный хостинг,HTTPS-сертификат,year,0,0,выпускает GitHub Pages
+item,kind,first_year_usd,renewal_usd,note,source_url,checked_at
+GitHub Pages,hosting,0,0,на тарифе Free — только открытый репозиторий,https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits,2026-10-10
+Vercel Hobby,hosting,0,0,только личное некоммерческое использование,https://vercel.com/docs/plans/hobby,2026-10-10
+"Tilda Personal, оплата за год",subscription,120,120,10 $ в месяц × 12,https://tilda.cc/pricing/,2026-10-10
+"Tilda Personal, помесячно",subscription,180,180,15 $ в месяц × 12,https://tilda.cc/pricing/,2026-10-10
+Домен .com,domain,11.08,11.08,,https://porkbun.com/products/domains,2026-10-10
+Домен .dev,domain,8.75,12.87,первый год по акции,https://porkbun.com/products/domains,2026-10-10
+Домен .site,domain,1.96,28.84,первый год по акции,https://porkbun.com/products/domains,2026-10-10
+Домен .xyz,domain,2.04,14.21,первый год по акции,https://porkbun.com/products/domains,2026-10-10
+Домен .me,domain,17.27,17.27,,https://porkbun.com/products/domains,2026-10-10
+Домен .io,domain,28.12,51.80,первый год по акции,https://porkbun.com/products/domains,2026-10-10
