@@ -5,3 +5,8 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Генератор картинок portfolio: зависимости и промежуточные рендеры
+/tools/portfolio_art/node_modules/
+/tools/portfolio_art/out/
+/tools/portfolio_art/.venv/
