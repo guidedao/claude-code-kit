@@ -42,10 +42,12 @@ git -C ../claude-code-kit pull
 | `buggy-report/` | 10. Код: чтение, запуск, отладка | Три бага в недельном отчёте | `python3 ../claude-code-kit/buggy-report/checks/check_bugs.py` |
 | `git-drill/` | 11. Git и GitHub в команде | Ветка, конфликт и откат | `python3 ../claude-code-kit/git-drill/checks/check_git_drill.py` |
 | `ci/` | 11. Git и GitHub в команде | Pull request с проверками CI | `python3 ../claude-code-kit/ci/checks/check_repo.py`, после слияния PR — `python3 ../claude-code-kit/ci/checks/check_pr.py` |
-| `connectors/` | 13. Коннекторы и MCP | Дайджест из двух источников | `python3 ../claude-code-kit/connectors/checks/check_digest.py` |
-| `repo-digest/` | 14. Расписания и фоновые запуски | Ежедневный дайджест репозитория | из папки `digest-work`: `python3 ../claude-code-kit/repo-digest/checks/check_digest.py` |
-| `poisoned-doc/` | 15. Безопасность | Отравленный документ | из папки `inbox-sandbox`: `python3 ../claude-code-kit/poisoned-doc/checks/check_poisoned.py` |
-| `team-pack/` | 16. Claude Code в команде | Командный пакет | `python3 ../claude-code-kit/team-pack/checks/check_team.py` |
+| `portfolio/` | 12. Сайты: портфолио, питч, лендинг | Сайт-портфолио | из папки `portfolio`: `python3 ../claude-code-kit/portfolio/checks/check_portfolio.py` |
+| `pitch/` | 12. Сайты: портфолио, питч, лендинг | Веб-питч для заказчика | из папки `orbidesk-pitch`: `python3 ../claude-code-kit/pitch/checks/check_pitch.py` |
+| `connectors/` | 14. Коннекторы и MCP | Дайджест из двух источников | `python3 ../claude-code-kit/connectors/checks/check_digest.py` |
+| `repo-digest/` | 15. Расписания и фоновые запуски | Ежедневный дайджест репозитория | из папки `digest-work`: `python3 ../claude-code-kit/repo-digest/checks/check_digest.py` |
+| `poisoned-doc/` | 16. Безопасность | Отравленный документ | из папки `inbox-sandbox`: `python3 ../claude-code-kit/poisoned-doc/checks/check_poisoned.py` |
+| `team-pack/` | 17. Claude Code в команде | Командный пакет | `python3 ../claude-code-kit/team-pack/checks/check_team.py` |
 
 ## Файлы для задач в уроках
 
@@ -55,11 +57,12 @@ git -C ../claude-code-kit pull
 | --- | --- | --- |
 | `usage-limits/` | 1. Введение в Claude Code | «Модель, усилие и расход» |
 | `session-rewind/` | 1. Введение в Claude Code | «Сессии и команды» |
-| `plugin-cost/` | 12. Скилы, хуки и автономность | «Плагины» |
-| `connectors/snapshots/` | 13. Коннекторы и MCP | «Что такое MCP и коннекторы», «Подключить и проверить сервер», «Google Drive, Slack, Notion и почта: чтение и запись», «Живой дашборд из коннектора» |
-| `repo-digest/samples/` | 14. Расписания и фоновые запуски | «Запуск без диалога: claude -p», «GitHub Actions и @claude» |
-| `security-drills/` | 15. Безопасность | «Секреты и мок-данные», «Доверие к расширениям» |
-| `team-pack/lessons/` | 16. Claude Code в команде | «Общий CLAUDE.md и личные настройки», «Командные скилы и плагины», «Параллельная работа», «Хэндоф между людьми», «Оценка результата» |
+| `portfolio/heroes/`, `portfolio/site-costs.csv` | 12. Сайты: портфолио, питч, лендинг | «Сайт без конструктора», «Проверки перед показом» |
+| `plugin-cost/` | 13. Скилы, хуки и автономность | «Плагины» |
+| `connectors/snapshots/` | 14. Коннекторы и MCP | «Что такое MCP и коннекторы», «Подключить и проверить сервер», «Google Drive, Slack, Notion и почта: чтение и запись», «Живой дашборд из коннектора» |
+| `repo-digest/samples/` | 15. Расписания и фоновые запуски | «Запуск без диалога: claude -p», «GitHub Actions и @claude» |
+| `security-drills/` | 16. Безопасность | «Секреты и мок-данные», «Доверие к расширениям» |
+| `team-pack/lessons/` | 17. Claude Code в команде | «Общий CLAUDE.md и личные настройки», «Командные скилы и плагины», «Параллельная работа», «Хэндоф между людьми», «Оценка результата» |
 
 ## Как устроена практика
 
@@ -67,7 +70,7 @@ git -C ../claude-code-kit pull
 - `<папка>/checks/check_<имя>.py` — автопроверка.
 - `<папка>/README.md` — что скопировать и куда.
 
-Некоторые папки устроены иначе. В разборах `table-traps/` и `charts/` лежат только файлы для просмотра. В `channels-report/` нет `inputs/`: данные практика создаёт текстом из урока. `git-drill/` собирает учебный репозиторий скриптом `setup.py`, а `ci/kit-files/` повторяет пути проекта. Отдельную рабочую папку рядом с `launch-kit` собирают и `setup.py` других практик: `repo-digest/` — репозиторий `digest-work`, `poisoned-doc/` — песочницу `inbox-sandbox`, `security-drills/leaked-key/` — репозиторий `leaked-key-drill`. Проверку `repo-digest/` и `poisoned-doc/` запускают из собранной папки. Что копировать, написано в README папки.
+Некоторые папки устроены иначе. В разборах `table-traps/` и `charts/` лежат только файлы для просмотра. В `channels-report/` нет `inputs/`: данные практика создаёт текстом из урока. `git-drill/` собирает учебный репозиторий скриптом `setup.py`, а `ci/kit-files/` повторяет пути проекта. Практики `portfolio/` и `pitch/` работают в своих открытых репозиториях рядом с `launch-kit` (`portfolio` и `orbidesk-pitch`) и запускают проверку оттуда; `portfolio/workflow/` — воркфлоу GitHub Actions для репозитория сайта. Отдельную рабочую папку рядом с `launch-kit` собирают и `setup.py` других практик: `repo-digest/` — репозиторий `digest-work`, `poisoned-doc/` — песочницу `inbox-sandbox`, `security-drills/leaked-key/` — репозиторий `leaked-key-drill`. Проверку `repo-digest/` и `poisoned-doc/` запускают из собранной папки. Что копировать, написано в README папки.
 
 Проверка печатает по строке на критерий: `✔` — выполнен, `✘` — нет, с подсказкой, куда смотреть. Последняя строка — «Итог: N из M». Код выхода 0 — всё пройдено, 1 — есть непройденные критерии, 2 — проверку нельзя провести.
 
