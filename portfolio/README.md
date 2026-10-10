@@ -38,6 +38,14 @@ cp ../claude-code-kit/portfolio/workflow/portfolio-check.yml .github/workflows/
 кладёт уже подготовленные картинки. Исходники в репозиторий не копируйте: GitHub Pages публикует всё, что в нём
 лежит.
 
+Источник «Deploy from a branch» пропускает репозиторий через Jekyll, и тот публикует файлы `.md` из корня отдельными
+страницами: `content.md` станет `content.html`. Рабочие файлы, которым на сайте не место, перечислите в `_config.yml`
+в корне репозитория:
+
+```yaml
+exclude: [README.md, content.md]
+```
+
 ## Проверка
 
 Из корня репозитория сайта:
