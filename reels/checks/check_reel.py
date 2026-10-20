@@ -178,7 +178,7 @@ def _storyboard():
     gone = missing_numbers(text)
     if gone:
         problems.append("нет чисел отчёта: " + ", ".join(fmt(n) for n in gone))
-    return Result(not problems, pass_=f"Раскадровка: {len(stamps)} сцен с таймкодами, числа из отчёта на месте",
+    return Result(not problems, pass_=f"Раскадровка: таймкодов {len(stamps)}, числа из отчёта на месте",
                   fail="Раскадровка не готова", details=problems,
                   hint="числа в ролике берут только из channel-summary.csv и campaigns.csv: сверьте их с отчётом.")
 
