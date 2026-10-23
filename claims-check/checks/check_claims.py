@@ -193,11 +193,12 @@ def _():
                       hint="Нет inputs/claims/: скопируйте в неё папку claims-check/inputs из набора.")
     problems = []
     missing = []
+    previous = state["expected"].get("sha256_previous", {})
     for rel, digest in state["expected"]["sha256"].items():
         path = ROOT / INPUTS / rel
         if not path.exists():
             missing.append((INPUTS / rel).as_posix())
-        elif sha256(path) != digest:
+        elif sha256(path) not in [digest] + previous.get(rel, []):
             problems.append(f"Изменён {(INPUTS / rel).as_posix()}: верните его из набора.")
     if missing:
         problems.insert(0, "Нет " + ", ".join(missing) + ": скопируйте папку из набора.")
