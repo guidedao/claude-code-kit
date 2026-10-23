@@ -49,6 +49,7 @@ git -C ../claude-code-kit pull
 | `poisoned-doc/` | 16. Безопасность | Отравленный документ | из папки `inbox-sandbox`: `python3 ../claude-code-kit/poisoned-doc/checks/check_poisoned.py` |
 | `team-pack/` | 17. Claude Code в команде | Командный пакет | `python3 ../claude-code-kit/team-pack/checks/check_team.py` |
 | `reels/` | 18. Ролики для соцсетей | Ролик из отчёта по каналам | из папки `reel-01`: `python3 ../claude-code-kit/reels/checks/check_reel.py` |
+| `capstone/` | 19. Кэпстоун | Кэпстоун-проект | из папки `followup-kit` после слияния PR: `python3 ../claude-code-kit/capstone/checks/check_capstone.py` |
 
 ## Файлы для задач в уроках
 
@@ -65,6 +66,7 @@ git -C ../claude-code-kit pull
 | `repo-digest/samples/` | 15. Расписания и фоновые запуски | «Запуск без диалога: claude -p», «GitHub Actions и @claude» |
 | `security-drills/` | 16. Безопасность | «Секреты и мок-данные», «Доверие к расширениям» |
 | `team-pack/lessons/` | 17. Claude Code в команде | «Общий CLAUDE.md и личные настройки», «Командные скилы и плагины», «Параллельная работа», «Хэндоф между людьми», «Оценка результата» |
+| `capstone/lessons/` | 19. Кэпстоун | «Требования к кэпстоун-проекту» |
 
 ## Как устроена практика
 
@@ -72,7 +74,7 @@ git -C ../claude-code-kit pull
 - `<папка>/checks/check_<имя>.py` — автопроверка.
 - `<папка>/README.md` — что скопировать и куда.
 
-Некоторые папки устроены иначе. В разборах `table-traps/` и `charts/` лежат только файлы для просмотра. В `channels-report/` нет `inputs/`: данные практика создаёт текстом из урока. `git-drill/` собирает учебный репозиторий скриптом `setup.py`, а `ci/kit-files/` повторяет пути проекта. Практики `portfolio/` и `pitch/` работают в своих открытых репозиториях рядом с `launch-kit` (`portfolio` и `orbidesk-pitch`) и запускают проверку оттуда; `portfolio/workflow/` — воркфлоу GitHub Actions для репозитория сайта. Отдельную рабочую папку рядом с `launch-kit` собирают и `setup.py` других практик: `repo-digest/` — репозиторий `digest-work`, `poisoned-doc/` — песочницу `inbox-sandbox`, `security-drills/leaked-key/` — репозиторий `leaked-key-drill`. Проверку `repo-digest/` и `poisoned-doc/` запускают из собранной папки. Практика `reels/` работает в своём проекте Remotion `reel-01` рядом с `launch-kit`, проверку запускают оттуда после рендера. Что копировать, написано в README папки.
+Некоторые папки устроены иначе. В разборах `table-traps/` и `charts/` лежат только файлы для просмотра. В `channels-report/` нет `inputs/`: данные практика создаёт текстом из урока. `git-drill/` собирает учебный репозиторий скриптом `setup.py`, а `ci/kit-files/` повторяет пути проекта. Практики `portfolio/` и `pitch/` работают в своих открытых репозиториях рядом с `launch-kit` (`portfolio` и `orbidesk-pitch`) и запускают проверку оттуда; `portfolio/workflow/` — воркфлоу GitHub Actions для репозитория сайта. Отдельную рабочую папку рядом с `launch-kit` собирают и `setup.py` других практик: `repo-digest/` — репозиторий `digest-work`, `poisoned-doc/` — песочницу `inbox-sandbox`, `security-drills/leaked-key/` — репозиторий `leaked-key-drill`. Проверку `repo-digest/` и `poisoned-doc/` запускают из собранной папки. Практика `reels/` работает в своём проекте Remotion `reel-01` рядом с `launch-kit`, проверку запускают оттуда после рендера. Кэпстоун `capstone/` проверяет ваш закрытый репозиторий `followup-kit` на GitHub: проверку запускают из него после слияния PR, а заметки из `capstone/checks/probe/` проверка подаёт вашему скрипту сама, копировать их не нужно. Что копировать, написано в README папки.
 
 Проверка печатает по строке на критерий: `✔` — выполнен, `✘` — нет, с подсказкой, куда смотреть. Последняя строка — «Итог: N из M». Код выхода 0 — всё пройдено, 1 — есть непройденные критерии, 2 — проверку нельзя провести.
 
