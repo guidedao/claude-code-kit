@@ -22,6 +22,9 @@ sys.path.insert(0, str(KIT_ROOT / "kitlib"))
 from check import Check, Result, Stop  # noqa: E402
 
 MEMOS = ["memo-%d" % i for i in range(1, 6)]
+# Прежние версии памяток: у тех, кто скопировал их до правки, проверка не падает. memo-4 до 24.10.2026 —
+# с фразой «До этого вы увидите тестовую версию…», где срок без пометки юриста делал вердикт спорным.
+PREVIOUS_MEMOS = {"memo-4": ("3b4e10470f65d031bb38130bf2c05d7a2571a10f7d50602459fe38f7351b6aae",)}
 SKILL_DIR = ".claude/skills/legal-wording"
 SHARED = [
     "CLAUDE.md",
@@ -236,7 +239,9 @@ def _verdicts():
         return Result(False, fail="Нет памяток в inputs/memos/: %s" % ", ".join(absent),
                       hint="скопируйте их из набора: " + copy)
     changed = [m for m in MEMOS if (ctx["repo"] / "inputs" / "memos" / ("%s.md" % m)).read_bytes()
-               != (PACK / "practice" / "memos" / ("%s.md" % m)).read_bytes()]
+               != (PACK / "practice" / "memos" / ("%s.md" % m)).read_bytes()
+               and hashlib.sha256((ctx["repo"] / "inputs" / "memos" / ("%s.md" % m)).read_bytes()).hexdigest()
+               not in PREVIOUS_MEMOS.get(m, ())]
     if changed:
         return Result(False, fail="Памятки отличаются от набора: %s" % ", ".join(changed),
                       hint="памятки — входные данные, их не правят. Скопируйте заново: " + copy)
