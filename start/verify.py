@@ -40,15 +40,15 @@ MODULES = {
                "work/acceptance.md", "inputs/tasks.csv", "inputs/notes.md", "CLAUDE.md", "style.md"]),
     4: ("04", ["outputs/update.md", "inputs/notes.md", "drafts/invite.md", "inputs/webinar-notes.md",
                "inputs/contract.docx", "outputs/contract-memo.md", "outputs/status.html", "style.md",
-               "CLAUDE.md", "inputs/risks.md"]),
+               "CLAUDE.md", "inputs/risks.md", "letter.md"]),
     5: ("05", ["inputs/tasks.csv", "outputs/competitors.md", "inputs/sources.md", "brief-research.md",
-               "templates/memo.md", ".claude/skills/memo/SKILL.md"]),
+               "templates/memo.md", ".claude/skills/memo/SKILL.md", "letter.md", "decisions.md"]),
     6: ("05", []),
     7: ("07", ["inputs/weekly-leads.csv", "inputs/invites.csv"]),
     8: ("08", ["scripts/reconcile.py", "work/reconcile-plan.md", "outputs/reconcile.xlsx", "inputs/tasks.csv",
                "work/acceptance.md", "style.md", "outputs/status.html", "inputs/campaigns.csv",
                "scripts/report.py", "outputs/channel-summary.csv", "outputs/channels.svg", "outputs/method.md",
-               "CLAUDE.md"]),
+               "CLAUDE.md", "inputs/crm-leads-oct.xlsx"]),
     9: ("08", []),
     10: ("08", ["scripts/report.py", "outputs/method.md", "inputs/campaigns.csv"]),
     11: ("11", ["scripts/build_status.py", "CLAUDE.md", "tests/test_report.py", ".claude/settings.json",
@@ -57,8 +57,8 @@ MODULES = {
     13: ("13", [".claude/skills/weekly-status/SKILL.md", ".claude/skills/weekly-status/scripts/check_status.py",
                 ".claude/agents/status-reviewer.md", "work/acceptance.md", "outputs/status.html",
                 "inputs/tasks.csv", ".claude/settings.json", "CLAUDE.md", "scripts/report.py",
-                "scripts/build_status.py"]),
-    14: ("13", ["style.md", ".claude/settings.json"]),
+                "scripts/build_status.py", "outputs/method.md"]),
+    14: ("13", ["style.md", ".claude/settings.json", "outputs/update.md"]),
     15: ("13", ["scripts/build_status.py", "inputs/tasks.csv", "outputs/status.html",
                 ".github/workflows/checks.yml", "CLAUDE.md", ".claude/settings.json", "tests/test_report.py"]),
     16: ("13", ["scripts/report.py"]),
@@ -180,6 +180,9 @@ def check_scripts(nn):
             res = run([sys.executable, "../claude-code-kit/channels-report/checks/check_channels.py"], work, expect_ok=False)
             print(res.stdout)
             ok(res.returncode == 0, f"start/{nn}: check_channels.py — {res.stdout.strip().splitlines()[-1]}")
+            res = run([sys.executable, "../claude-code-kit/ci/checks/check_repo.py"], work, expect_ok=False)
+            ok(res.returncode == 0 and "Итог: 4 из 4" in res.stdout,
+               f"start/{nn}: check_repo.py — {res.stdout.strip().splitlines()[-1]} (урок «/loop и цели»)")
     finally:
         shutil.rmtree(tmp)
 
@@ -220,6 +223,17 @@ def check_texts():
                  ("07/inputs/crm-leads-sept.csv", "crm-reconcile/inputs/crm-leads-sept.csv")):
         ok(hashlib.sha256((START / a).read_bytes()).digest() == hashlib.sha256((KIT / b).read_bytes()).digest(),
            f"{a} совпадает с {b}")
+    v1 = (START / "04/letter.md").read_text(encoding="utf-8")
+    ok("пришлём до\n20 мая. Марина проверит юридические формулировки до\nзапуска. Рекламу запустим после её проверки." in v1,
+       "start/04 letter.md: версия Ильи, правку Никиты урок «Версии документа в Git» вносит сам")
+    dec = "Илья, 17 мая: тексты — до 24 мая; проверка Марины до запуска остаётся; бесплатную доработку не обещаем."
+    for nn in sorted(p.name for p in START.iterdir() if p.is_dir() and p.name >= "05"):
+        fin = (START / nn / "letter.md").read_text(encoding="utf-8")
+        ok(fin == v1.replace("до\n20 мая", "до\n24 мая") and dec in (START / nn / "decisions.md").read_text(encoding="utf-8"),
+           f"start/{nn}: letter.md по решению Ильи из decisions.md (урок «Хэндоф»)")
+    legal = KIT / "team-pack/lessons/marketplace/launch-kit-plugins/plugins/launch-legal/skills/legal-wording"
+    ok((legal / "SKILL.md").is_file() and (legal / "legal-rules.md").is_file(),
+       "team-pack: скил legal-wording, на который ссылается урок «Командные скилы и плагины»")
     sk = (START / "13/.claude/skills/weekly-status/SKILL.md").read_text(encoding="utf-8")
     ok("disable-model-invocation: true" in sk and "${CLAUDE_SKILL_DIR}/scripts/check_status.py" in sk, "SKILL.md weekly-status как в уроке")
     st = (START / "13/.claude/settings.json").read_text(encoding="utf-8")
