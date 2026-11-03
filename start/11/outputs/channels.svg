@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="282" viewBox="0 0 640 282" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif" font-size="16" fill="#1a1a1a">
+<rect width="640" height="282" fill="#ffffff"/>
+<text x="0" y="24">CPL по каналам, 1–3 мая 2026, ₽ за лид</text>
+<text x="0" y="63">email</text>
+<rect x="96" y="48" width="123.8" height="20" fill="#1a1a1a"/>
+<text x="227.8" y="63" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">113</text>
+<text x="0" y="97">social</text>
+<rect x="96" y="82" width="297.3" height="20" fill="#1a1a1a"/>
+<text x="401.3" y="97" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">270</text>
+<text x="0" y="131">search</text>
+<rect x="96" y="116" width="367.4" height="20" fill="#1a1a1a"/>
+<text x="471.4" y="131" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">334</text>
+<text x="0" y="165">partners</text>
+<rect x="96" y="150" width="392.9" height="20" fill="#1a1a1a"/>
+<text x="496.9" y="165" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">357</text>
+<text x="0" y="199">video</text>
+<rect x="96" y="184" width="440.0" height="20" fill="#1a1a1a"/>
+<text x="544.0" y="199" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">400</text>
+<line x1="96" y1="218" x2="536" y2="218" stroke="#6b6b6b" stroke-width="1"/>
+<text x="96.0" y="236" font-size="14" fill="#6b6b6b" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">0</text>
+<text x="206.0" y="236" font-size="14" fill="#6b6b6b" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">100</text>
+<text x="316.0" y="236" font-size="14" fill="#6b6b6b" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">200</text>
+<text x="426.0" y="236" font-size="14" fill="#6b6b6b" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">300</text>
+<text x="536.0" y="236" font-size="14" fill="#6b6b6b" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">400</text>
+<text x="0" y="266" font-size="14" fill="#6b6b6b">Без CPL: organic, unknown — spend не указан.</text>
+</svg>

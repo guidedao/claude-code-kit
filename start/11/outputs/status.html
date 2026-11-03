@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Статус запуска на 15 мая</title>
+<style>
+  body { margin: 0; background: #ffffff; color: #1a1a1a;
+         font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 24px 48px; }
+  .subtitle, .meta { color: #6b6b6b; margin: 0; }
+  .verdict { font-size: 32px; font-weight: 600; line-height: 1.25; margin: 8px 0; }
+  .risk, .accent { color: #b42318; }
+  h2 { font-size: 20px; font-weight: 600; margin: 40px 0 8px; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  td { padding: 8px 12px 8px 0; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:first-child td { border-top: 1px solid #e5e5e5; }
+  .owner, .mark { color: #6b6b6b; }
+  .mark { font-size: 14px; }
+  .num, .due { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .due { white-space: nowrap; }
+  .empty { color: #6b6b6b; margin: 0; }
+  img { display: block; max-width: 100%; height: auto; margin-top: 8px; }
+  @media (max-width: 600px) {
+    table, tbody, tr, td { display: block; }
+    col { display: none; }
+    tr { padding: 8px 0; border-bottom: 1px solid #e5e5e5; }
+    tr:first-child { border-top: 1px solid #e5e5e5; }
+    td, tr:first-child td { border: 0; padding: 0; }
+    .owner, .due, .mark { display: inline; font-size: 14px; color: #6b6b6b; }
+    .due::before, .mark:not(:empty)::before { content: " · "; }
+    .mark.accent { color: #b42318; }
+  }
+</style>
+</head>
+<body>
+<main>
+<p class="subtitle">Лендинг сервиса еженедельных отчётов · запуск 20 мая</p>
+<h1 class="verdict risk">Запуск под риском</h1>
+<p class="meta">Статус на <span class="num">15 мая</span>. Всего задач: <span class="num">6</span>.</p>
+<section>
+<h2>Блокеры и просрочки</h2>
+<table>
+<colgroup><col style="width:44%"><col style="width:18%"><col style="width:14%"><col style="width:24%"></colgroup>
+<tr><td class="task">CSV с рекламными каналами</td><td class="owner">Никита</td><td class="due">14 мая</td><td class="mark"><span class="accent">просрочено</span></td></tr>
+<tr><td class="task">Настройка A/B-теста</td><td class="owner">Аня</td><td class="due">19 мая</td><td class="mark"><span class="accent">блокер: ждёт финальный текст</span></td></tr>
+</table>
+</section>
+<section>
+<h2>В работе</h2>
+<table>
+<colgroup><col style="width:44%"><col style="width:18%"><col style="width:14%"><col style="width:24%"></colgroup>
+<tr><td class="task">Финальный текст первого экрана</td><td class="owner"></td><td class="due">19 мая</td><td class="mark">ответственный не назначен</td></tr>
+</table>
+</section>
+<section>
+<h2>Готово</h2>
+<table>
+<colgroup><col style="width:44%"><col style="width:18%"><col style="width:14%"><col style="width:24%"></colgroup>
+<tr><td class="task">Дизайн первого экрана</td><td class="owner">Аня</td><td class="due">13 мая</td><td class="mark"></td></tr>
+<tr><td class="task">Юридические формулировки</td><td class="owner">Марина</td><td class="due">15 мая</td><td class="mark"></td></tr>
+<tr><td class="task">Аналитика событий</td><td class="owner">Никита</td><td class="due">12 мая</td><td class="mark"></td></tr>
+</table>
+</section>
+<section>
+<h2>Рекламные каналы, 1–3 мая</h2>
+<img src="channels.svg" alt="CPL по каналам, 1–3 мая 2026">
+</section>
+</main>
+</body>
+</html>
