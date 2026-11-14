@@ -1,9 +1,9 @@
 # Копия набора для Moscow Coding School: github.com/moscoding/claude-code-kit.
-# Ученики школы проходят те же уроки, но платформа ведёт их в копию без имени Guide DAO. Копию собирает
-# .github/sync/moscoding_copy.py после каждого пуша в main; без этого копия отстаёт от набора.
+# Ученики школы проходят те же уроки, но платформа ведёт их в копию без имени Guide DAO: связи школ
+# ученики видеть не должны. Копию собирает .github/sync/moscoding_copy.py после каждого пуша в main.
 #
-# Нужен секрет MOSCODING_DEPLOY_KEY: закрытая часть SSH-ключа, открытая часть которого добавлена
-# в moscoding/claude-code-kit → Settings → Deploy keys с правом записи.
+# Секрет MOSCODING_DEPLOY_KEY — закрытая часть SSH-ключа; открытая добавлена в moscoding/claude-code-kit →
+# Settings → Deploy keys с правом записи.
 name: Копия для Moscow Coding School
 
 on:
